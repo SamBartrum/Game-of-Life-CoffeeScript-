@@ -12,7 +12,9 @@
 
 height = 800
 width = 800
-size = 15
+# size = 15
+size = 10
+nocells = 73
 
 ctx = document.getElementById("myCanvas").getContext("2d")
 
@@ -23,9 +25,9 @@ Cells = []
 
 
 randomInit = ->      # Generates a random distribution of alive and dead cells
-  for x in [0...50]
+  for x in [0...nocells]
     Cells[x] =[]
-    for y in [0...50]
+    for y in [0...nocells]
       a = Math.random()
       if a > 0.5
         thing = 'alive'
@@ -48,8 +50,8 @@ randomInit = ->      # Generates a random distribution of alive and dead cells
   
 updateSquare = (Cells)->   # Function to redraw cells depending upon their state
 
-  for x in [0...50]
-    for y in [0...50]
+  for x in [0...nocells]
+    for y in [0...nocells]
       if Cells[x][y]['state'] == 'alive'
         color = 'rgb(0,0,100)'
       else if Cells[x][y]['state'] == 'dead'
@@ -61,9 +63,9 @@ updateSquare = (Cells)->   # Function to redraw cells depending upon their state
 countLiveNeighbours = (Cells,i,j) ->   # Function to count the nearest live neighbours of a given cell
   neighbors = 0
   rowlb = Math.max j-1,0      # This both avoid boundary condition issues and means we only search over the 9 by 9 grid surrounding the cell of interest
-  rowub = Math.min j+1,49
+  rowub = Math.min j+1,nocells-1
   collb = Math.max i-1,0
-  colub = Math.min i+1,49
+  colub = Math.min i+1,nocells-1
 
   for x in [collb..colub]
     for y in [rowlb..rowub]
@@ -74,8 +76,8 @@ countLiveNeighbours = (Cells,i,j) ->   # Function to count the nearest live neig
 
 
 changeState = (Cells)->    # This function changes the states of the cells after the neighbours have been calculated
-  for i in [0...50]
-    for j in [0...50]
+  for i in [0...nocells]
+    for j in [0...nocells]
       
       if Cells[i][j]['state'] == 'alive' and Cells[i][j]['neighbors'] < 2
         Cells[i][j]['state'] = 'dead'
@@ -91,14 +93,16 @@ changeState = (Cells)->    # This function changes the states of the cells after
       
       
  tick = ->     # This function loops with a slight delay, computing the nearest live neighbours, changing their states and then redrawing the cells
-    for i in [0...50]
-      for j in [0...50]
+    for i in [0...nocells]
+      for j in [0...nocells]
         countLiveNeighbours(Cells,i,j)
     changeState(Cells)    
     updateSquare(Cells)    
 
     setTimeout(tick, 100)
 
+thing = -> 
+  alert "hi"
 
 
 randomInit()    # Just getting things going

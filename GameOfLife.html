@@ -1,31 +1,22 @@
 <!DOCTYPE html>
 <html>
-<title>Game of Life</title>
-<body>
+  <title>The Game of Life</title>
+    <link rel='stylesheet' type='text/css' href='stylesheet.css'/>
+      <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+      <script type="text/javascript" src="animations.js"></script>
+      
+      <body>
 
-  <canvas id="myCanvas" height="1000" width="1000"> 
-  </canvas>
-   <style type="text/css">
-    body {
-      background-color: rgb(38, 38, 38);
-    }
-    canvas {
-      /*border: 1px solid rgba(242, 198, 65, 0.1);*/
-      margin: 100px auto 0 auto;
-       padding-left: 0;
-   	 padding-right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    width: 1000px;
-    }
-  </style>
+        <div id = "title"> The Game of Life </div>
+
+        <canvas id="myCanvas" height="1000" width="1000"> </canvas>
  
+        <script src= "javascripts/GoL.js"></script>
 
+        <button type="button" id = "Reset" class = "one" > Reset </button>
+        <button type="button" id = "Randomise" class = "one"> Randomise </button>
+        <button type="button" id = "Go" class = "one"> Go! </button>
 
-  <script src= "javascripts/GoL.js">
-  </script>
-
-</body>
+     </body>
 
 </html>
