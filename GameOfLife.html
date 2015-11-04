@@ -1,17 +1,24 @@
-<!DOCTYPE html>
 <html>
-  <title>The Game of Life</title>
-    <link rel='stylesheet' type='text/css' href='stylesheet.css'/>
-      <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-      <script type="text/javascript" src="animations.js"></script>
+
+  <head>
       
+    <title>The Game of Life</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="animations.js"></script>
+    
+        <script type = "text/javascript" src= "javascripts/GoL.js"> </script>
+
+  </head>
+
       <body>
 
         <div id = "title"> The Game of Life </div>
-
-        <canvas id="myCanvas" height="1000" width="1000"> </canvas>
  
-        <script src= "javascripts/GoL.js"></script>
+       <script> 
+          new GameOfLife();
+       </script>
+
 
         <button type="button" id = "Reset" class = "one" > Reset </button>
         <button type="button" id = "Randomise" class = "one"> Randomise </button>
