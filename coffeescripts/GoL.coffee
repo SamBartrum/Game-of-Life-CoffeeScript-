@@ -8,7 +8,6 @@
 # A living cell with more than three living neighbors dies due to overcrowding.
 # A dead cell with exactly three living neighbors becomes a living cell due to reproduction.
 
-
 class GameOfLife
 
   size: 15
@@ -24,7 +23,7 @@ class GameOfLife
     @makeDrawingContext()
 
     @randomInit()
-    @tick()
+
 
 
   makeCanvas:->
@@ -66,6 +65,17 @@ class GameOfLife
           'neighbors': 0
         }
         @cells[x][y] = A
+
+
+  clear: ->      # Resets the board
+
+    for x in [0...@nocells]
+      for y in [0...@nocells]
+        @cells[x][y]['state'] = 'dead'
+        color = 'rgb(0,0,0)'
+        @ctx.fillStyle = color
+        @ctx.fillRect x + x * @size, y + y * @size, @size, @size  
+
     
     
   updateSquare: ->   # Function to redraw cells depending upon their state
@@ -115,7 +125,8 @@ class GameOfLife
           @cells[i][j]['state'] = 'alive'
 
 
-        
+
+          
         
   tick: =>     # This function loops with a slight delay, computing the nearest live neighbours, changing their states and then redrawing the cells
     
@@ -134,13 +145,6 @@ class GameOfLife
 
 
 window.GameOfLife = GameOfLife
-
-
-
-
-
-
-
 
 
 

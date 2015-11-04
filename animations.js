@@ -17,13 +17,6 @@ $(document).ready(	function(){
   );
 
 
-  $('#Reset').click(	function(){
-  	thing();
-
-  });
-
-
-
 
 });
 

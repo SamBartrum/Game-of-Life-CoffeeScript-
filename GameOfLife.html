@@ -16,13 +16,13 @@
         <div id = "title"> The Game of Life </div>
  
        <script> 
-          new GameOfLife();
+          var thing = new GameOfLife();
        </script>
 
 
-        <button type="button" id = "Reset" class = "one" > Reset </button>
-        <button type="button" id = "Randomise" class = "one"> Randomise </button>
-        <button type="button" id = "Go" class = "one"> Go! </button>
+        <button type="button" id = "Reset" class = "one" onclick = "thing.clear();"> Clear </button>
+        <button type="button" id = "Randomise" class = "one" onclick = "thing.randomInit();"> Randomise </button>
+        <button type="button" id = "Go" class = "one" onclick = "thing.tick();"> Go! </button>
 
      </body>
 

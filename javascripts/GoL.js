@@ -19,7 +19,6 @@
       this.makeCanvas();
       this.makeDrawingContext();
       this.randomInit();
-      this.tick();
     }
 
     GameOfLife.prototype.makeCanvas = function() {
@@ -62,6 +61,25 @@
               'neighbors': 0
             };
             results1.push(this.cells[x][y] = A);
+          }
+          return results1;
+        }).call(this));
+      }
+      return results;
+    };
+
+    GameOfLife.prototype.clear = function() {
+      var color, k, ref, results, x, y;
+      results = [];
+      for (x = k = 0, ref = this.nocells; 0 <= ref ? k < ref : k > ref; x = 0 <= ref ? ++k : --k) {
+        results.push((function() {
+          var l, ref1, results1;
+          results1 = [];
+          for (y = l = 0, ref1 = this.nocells; 0 <= ref1 ? l < ref1 : l > ref1; y = 0 <= ref1 ? ++l : --l) {
+            this.cells[x][y]['state'] = 'dead';
+            color = 'rgb(0,0,0)';
+            this.ctx.fillStyle = color;
+            results1.push(this.ctx.fillRect(x + x * this.size, y + y * this.size, this.size, this.size));
           }
           return results1;
         }).call(this));
