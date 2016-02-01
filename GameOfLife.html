@@ -4,26 +4,29 @@
       
     <title>The Game of Life</title>
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src="animations.js"></script>
-    
-        <script type = "text/javascript" src= "javascripts/GoL.js"> </script>
+
+    <script type = "text/javascript" src= "javascripts/GoL.js"> </script>
 
   </head>
 
       <body>
 
-        <div id = "title"> The Game of Life </div>
+     
+       <center> <h1 id = "title" align = "center"> The Game of Life </h1></center>
  
        <script> 
           var thing = new GameOfLife();
        </script>
 
-
-        <button type="button" id = "Reset" class = "one" onclick = "thing.clear();"> Clear </button>
+        <button type="button" id = "Reset" class = "one" onclick = "thing.clear()"> Clear </button>
         <button type="button" id = "Randomise" class = "one" onclick = "thing.randomInit();"> Randomise </button>
         <button type="button" id = "Go" class = "one" onclick = "thing.tick();"> Go! </button>
 
+
+
      </body>
+
+
+
 
 </html>
